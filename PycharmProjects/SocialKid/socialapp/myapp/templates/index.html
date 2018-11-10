@@ -1,0 +1,161 @@
+{% load cloudinary %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Socialize</title>
+     <!-- Favicons
+    ================================================== -->
+    {% load static %} <link rel="shortcut icon" href="{% static "myapp/socialkid.png" %}" type="image/x-icon">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://use.fontawesome.com/baacfa72b9.js"></script>
+    <script>
+    function validateform(){
+    var name=document.from.name.value;
+    var password=document.form.password.value;
+
+    if (name==null || name=="") && (name.length<5){
+      alert("Name can't be blank");
+      return false;
+    }else if(password.length<6){
+      alert("Password must be at least 6 characters long.");
+      return false;
+      }
+     }
+</script>
+    <style>
+        .phone{
+        height:85%;
+        width:85%;
+        margin-top:30px;
+        }
+        .text{
+        font-family: 'Chewy', cursive;
+        color:#436ea5;
+        }
+        .text5{
+        font-family:'Lobster','cursive;
+        color:#436ea5;
+        }
+        .text3{
+        font-family:'Chewy' ,cursive;
+        color:#573f7a;
+        }
+        .text1{
+        font-family: 'Lobster', cursive;
+        color:#bc32b3;
+        }
+        .text2{
+        font-family: 'Lobster', cursive;
+        color:white;
+        font-size:45px;
+        margin-top:10px;
+        height:30%;
+        }
+       #cta{
+        background-color:#bc32b3;
+        margin:1px 0 0 0;
+
+        }
+        .text4{
+        font-family:'Lobster',cursive;
+        margin-top:40px;
+        height:30%;
+        color:white;
+        }
+
+        #me {
+            -webkit-animation: rotation 15s infinite linear;
+        }
+
+        @-webkit-keyframes rotation {
+            from {-webkit-transform: rotate(0deg);}
+            to   {-webkit-transform: rotate(359deg);}
+        }
+        .sim{
+        background-color:#e2cee2;
+        }
+
+    </style>
+</head>
+<body class="sim">
+   <nav class="navbar fixed-top navbar-light" id="cta">
+    <div class="container">
+  <a class="text2 navbar-brand" href="#"><i class="fa fa-users aria-hidden="true"></i>  Socialize</a>
+         <ul class="nav navbar-nav navbar-right">
+             <li><h2 class="text4">Safe communication portal for kids</h2></li>
+         </ul>
+
+    </div>
+</nav>
+
+        <div class = "row">
+            <div class ="col-md-1">
+            </div>
+            <div class ="col-md-4">
+
+            {% load static %} <img src="{% static "myapp/global-kids.png" %}" id="me" alt="Image!" class="phone"/>
+                <h3 class="text1">Socialize © 2018 Harsh </h3>
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class ="col-md-4">
+                <form class="form-horizontal" method="POST">
+                    <h4 style='color: white' id='error-text'>{{ context }}</h4>
+                {% csrf_token %}
+                <div class="form-group">
+                <h2 class="text1" align="center">Create an account</h2>
+              <br>
+            <label for="username" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-10">
+              <input type="uername" class="form-control"  placeholder="username" id="username" name="username" required minlength=4 value={{ username }}>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+              <input type="name" class="form-control" placeholder="name" id="name" name="name" required value={{ name }}>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" placeholder="Email" id="email" name="email" required value={{ email }}>
+            </div>
+          </div>
+           <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" placeholder="password" id="password" name="password" minlength=5 required value={{ password }}>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-primary" name="Sign up">Sign up</button>
+            </div>
+          </div>
+                <div><h2 class="text1" align="center">Already a user?<br><a href="login/" class="text5">Login</a></h2> </div>
+                    <br><h2 class="text3" align="center"><i class="fa fa-flag-checkered fa-x" aria-hidden="true"></i>
+                    "Zero harm to the brains and bones."</h2>
+                    <h3 class="text1" align="center">Enter at nobody's risk because it is the safest.</h3>
+            </form>
+            </div>
+            <h1 class="text2">{{ text }}</h1>
+            <div class="col-md-2">
+            </div>
+        </div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
+</html>
